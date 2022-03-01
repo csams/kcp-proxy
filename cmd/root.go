@@ -22,6 +22,7 @@ func Execute() error {
 
 func init() {
 	rootCmd.PersistentFlags().StringVar(&server.ListenAddress, "listen-address", ":8083", "Address and port for the proxy to listen on")
+
 	rootCmd.PersistentFlags().StringVar(&server.ClientCACert, "client-ca-cert", "certs/ca-cert.pem", "CA cert used to validate client certs")
 	rootCmd.MarkFlagRequired("client-ca-cert")
 
