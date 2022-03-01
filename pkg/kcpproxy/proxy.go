@@ -2,12 +2,11 @@ package kcpproxy
 
 import (
 	"crypto/tls"
+	"crypto/x509"
 	"io/ioutil"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
-
-	"crypto/x509"
 )
 
 // NewReverseProxy returns a new reverse proxy where backend is the backend URL to
