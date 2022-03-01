@@ -11,20 +11,11 @@ import (
 
 // Server holds the configuration for the proxy server
 type Server struct {
-	// The hostname:port for the proxy to listen on
-	ListenAddress string
-
-	// CA used to validate client certs connecting to the proxy
-	ClientCACert string
-
-	// The proxy's server cert
-	ServerCertFile string
-
-	// The proxy's private key file
-	ServerKeyFile string
-
-	// A yaml file containing a list of PathMappings
-	MappingFile string
+	ListenAddress  string // The hostname:port for the proxy to listen on
+	ClientCACert   string // CA used to validate client certs connecting to the proxy
+	ServerCertFile string // The proxy's server cert
+	ServerKeyFile  string // The proxy's private key file
+	MappingFile    string // A yaml file containing a list of PathMappings
 }
 
 // PathMapping describes how to route traffic from a path to a backend server.
