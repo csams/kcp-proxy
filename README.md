@@ -1,7 +1,7 @@
 # kcp-proxy
-HTTPS proxy that maps paths to multiple backends, performs TLS re-encryption to
-each, and supports client certificate based authentication that converts common
-names and orgs to HTTP headers that are passed on to KCP.
+kcp-proxy is an HTTPS proxy that maps paths to backend KCP instances, performs
+TLS re-encryption to each, and supports client certificate based authentication
+that converts common names and orgs to HTTP headers that are passed on to KCP.
 
 The proxy itself needs a serving cert/key pair, and it needs client certs and
 keys to identity itself to and communicate with each backend. It needs a CA for
@@ -19,8 +19,8 @@ Then run this:
 ```
 
 # Configure KCP and virtual workspaces server
-KCP needs to be told which CA to use to trust the proxy's client cert. Start it
-something like this:
+KCP needs to be told which CA to use to trust the proxy's client cert and by
+extension the HTTP headers for users and groups. Start it something like this:
 ```
 #!/usr/bin/env bash
 
