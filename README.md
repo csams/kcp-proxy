@@ -3,13 +3,22 @@ HTTPS proxy that maps paths to multiple backends, performs TLS re-encryption to
 each, and supports client certificate based authentication that converts common
 names and orgs to HTTP headers that are passed on to KCP.
 
-# Example
-The proxy itself needs a serving cert/key pair, and it needs a client cert and
-key to identity itself to and communicate with each backend. It needs a CA for
+The proxy itself needs a serving cert/key pair, and it needs client certs and
+keys to identity itself to and communicate with each backend. It needs a CA for
 its serving cert that clients connecting to it will need to trust, a CA that will
 be used to verify all client certs used to connect to it, and the CA used to
 trust the serving cert of each backend server.
 
+## Generate the proxy's certs
+Update the `.cnf` files in [hack](hack) so the generated certs include the IP
+addresses to which KCP and the virtual workspaces server bind in their SANs.
+
+Then run this:
+```bash
+./hack/gen-certs.sh
+```
+
+# Configure KCP and virtual workspaces server
 KCP needs to be told which CA to use to trust the proxy's client cert. Start it
 something like this:
 ```
@@ -24,13 +33,8 @@ something like this:
     --requestheader-group-headers=X-Remote-Group \
     ...
 ```
-
-## Generate the proxy certs
-Update the `.cnf` files in [hack](hack) so the certs include the IP address to
-which KCP binds in their SANs. Then run this:
-```bash
-./hack/gen-certs.sh
-```
+The virtual workspaces server should be started with the same options but values
+specific to it.
 
 ## An example path mapping
 ```yaml
