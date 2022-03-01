@@ -10,8 +10,8 @@ be used to verify all client certs used to connect to it, and the CA used to
 trust the serving cert of each backend server.
 
 ## Generate the proxy's certs
-Update the `.cnf` files in [hack](hack) so the generated certs include the IP
-addresses to which KCP and the virtual workspaces server bind in their SANs.
+Update the `.cnf` files in [hack](hack) so the generated certs include in their
+SANs the IP addresses to which KCP and the virtual workspaces server bind.
 
 Then run this:
 ```bash
@@ -44,7 +44,7 @@ Create a config file that maps paths to KCP backends.
   backend_server_ca: /home/<username>/projects/work/kcp/code/kcp/certs/ca-cert.pem
   proxy_client_cert: certs/proxy-cert.pem
   proxy_client_key: certs/proxy-key.pem
-- path: /application/services
+- path: /services/applications
   backend: https://localhost:6444
   backend_server_ca: /home/<username>/projects/work/kcp/code/kcp/certs/ca-cert.pem
   proxy_client_cert: certs/proxy-cert.pem
