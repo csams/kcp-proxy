@@ -49,6 +49,7 @@ in SANs. Then run this:
 ```
 
 ## How to run it
+The proxy by defaults listens on port 8083.
 ```bash
 go install github.com/csams/kcp-proxy
 kcp-proxy --mapping-file=path-mapping.yaml
