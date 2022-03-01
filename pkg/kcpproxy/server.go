@@ -28,8 +28,8 @@ type Server struct {
 }
 
 // PathMapping describes how to route traffic from a path to a backend server.
-// The yaml file is a list of these objects. Path is registered in the
-// DefaultServeMux with a handler that delegates to the backend.
+// Each Path is registered with the DefaultServeMux with a handler that
+// delegates to the specified backend.
 type PathMapping struct {
 	Path            string `yaml:"path"`
 	Backend         string `yaml:"backend"`
@@ -40,6 +40,7 @@ type PathMapping struct {
 	GroupHeader     string `yaml:"group_header,omitempty"`
 }
 
+// Serve sets up the proxy and starts serving
 func (s *Server) Serve() error {
 	mappingData, err := ioutil.ReadFile(s.MappingFile)
 	if err != nil {
