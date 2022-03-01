@@ -23,7 +23,7 @@ type Server struct {
 	// The proxy's private key file
 	ServerKeyFile string
 
-	// A yaml file containing a list of Paths
+	// A yaml file containing a list of PathMappings
 	MappingFile string
 }
 
