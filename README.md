@@ -37,6 +37,7 @@ The virtual workspaces server should be started with the same options but values
 specific to it.
 
 ## An example path mapping
+Create a config file that maps paths to KCP backends.
 ```yaml
 - path: /
   backend: https://localhost:6443
