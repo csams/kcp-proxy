@@ -1,0 +1,10 @@
+- path: /
+  backend: https://localhost:6443
+  backend_server_ca: /home/csams/projects/work/kcp/code/kcp/certs/ca-cert.pem
+  proxy_client_cert: certs/proxy-cert.pem
+  proxy_client_key: certs/proxy-key.pem
+- path: /application/services
+  backend: https://localhost:6444
+  backend_server_ca: /home/csams/projects/work/kcp/code/kcp/certs/ca-cert.pem
+  proxy_client_cert: certs/proxy-cert.pem
+  proxy_client_key: certs/proxy-key.pem
